@@ -74,7 +74,7 @@ const ShipmentCard = ({ shipment }) => {
         <div>
           <h1 className="text-sm font-semibold">Owner</h1>
           <span>
-            {shipment?.manager?.first_name}&nbsp;{shipment?.manager?.last_name}
+            {shipment?.manager?.additional_info?.full_name}
           </span>
         </div>{" "}
         <div>

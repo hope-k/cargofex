@@ -7,7 +7,7 @@ const MobileNav = () => {
   const { toggleSidebar, isOpen  } = useSidebar();
 
   return (
-    <div className="block sm:hidden py-2">
+    <div className="block md:hidden py-2">
       <Hamburger toggle={toggleSidebar} toggled={isOpen} rounded direction="right" size={28} />
     </div>
   );

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import { Barlow, Fascinate_Inline } from "next/font/google";
@@ -52,9 +52,15 @@ const Carousel = ({ images, content }) => {
       <div className="w-24 h-24">
         <Lottie animationData={LocatingSpinner} />
       </div>,
-      { id: "tracking", duration: 10000 }
+      { id: "tracking", duration:30000 }
     );
   };
+
+  useEffect((
+    
+  ) => {
+    
+  }, [isPending])
 
   return (
     <div className="relative lg:h-[80vh] h-screen overflow-hidden ">
@@ -130,7 +136,7 @@ const Carousel = ({ images, content }) => {
       </AnimatePresence>
 
       {/* content */}
-      <div className="relative z-40 text-center sm:text-start  container gap-4 mt-[6rem] lg:mt-[9rem] justify-between  flex flex-col sm:flex-row ">
+      <div className="relative z-40 text-center sm:text-start  container gap-4 mt-[6rem] sm:mt-[9rem] justify-between  flex flex-col sm:flex-row ">
         <div className="space-y-8 sm:space-y-0">
           {content.map((item, i) => {
             if (i === index) {

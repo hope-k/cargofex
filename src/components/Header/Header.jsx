@@ -123,7 +123,7 @@ const Header = () => {
           </Link>
 
           <MobileNav />
-          <div className="hidden  sm:flex items-center   ">
+          <div className="hidden  md:flex items-center   ">
             {navLinks.map((link) => {
               return <Dropdown key={link.name} link={link} />;
             })}

@@ -40,7 +40,7 @@ const TrackShipment = () => {
       <div className="w-24 h-24">
         <Lottie animationData={LocatingSpinner} />
       </div>,
-      { id: "tracking", duration: 10000 }
+      { id: "tracking", duration: 30000}
     );
   };
 

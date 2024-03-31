@@ -4,7 +4,6 @@ export function middleware(request) {
   //   const cookieStore = cookies(request);
   const tracking_number = request.cookies.get("tracking_number")?.value || null;
   const { pathname, origin } = request.nextUrl;
-  console.log("SERVER COOKIES ==>", tracking_number, pathname);
 
   // redirect to the tracking page with ?tracking_number=tracking_number if the cookie exists
   if (tracking_number && pathname !== "/shipment/tracking") {

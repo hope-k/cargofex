@@ -11,8 +11,8 @@ const CookieMessage = () => {
         >
           <motion.div
             initial={{ y: -70, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ type: "spring", delay: 1, duration: 1.3, bounce: 0 }}
+            animate={{ y: 0, opacity: 1, transition: { delay: 1 } }}
+            transition={{ type: "spring", duration: 1.3, bounce: 0 }}
             exit={{ y: -70, opacity: 0 }}
             className="bg-slate-50 text-gray-900  p-4 sm:pl-1 sm:p-0  rounded-xl "
           >
@@ -21,7 +21,7 @@ const CookieMessage = () => {
               details, please see our{" "}
               <span className="underline">Privacy Policy</span>
               <button
-                className="bg-primary rounded-xl p-2 ml-1"
+                className="bg-primary transition-all duration-300 ease-in rounded-xl p-2 ml-1 hover:bg-midnight hover:text-white"
                 onClick={() => setShowMessage(false)}
               >
                 Accept

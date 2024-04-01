@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback,useEffect } from "react";
 import {
   Dropdown,
   DropdownTrigger,
@@ -17,10 +17,32 @@ import {
 import { Bell } from "lucide-react";
 import moment from "moment";
 import { MoveRight } from "lucide-react";
+import { toast } from "react-hot-toast";
+import { motion } from "framer-motion";
 
 const Notification = ({ notifications }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [currentNotification, setCurrentNotification] = useState(null);
+
+  useEffect(() => {
+    if (notifications?.length > 0) {
+      toast.custom(
+        <motion.div
+          initial={{ y: -70, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            type: "spring",
+            bounce: 0.1,
+          }}
+          className="bg-primary text-white font-semibold text-xs p-3 rounded-2xl"
+        >
+          You have {notifications?.length} new notifications
+        </motion.div>,
+        { id: "signup", duration: 5000 },
+        { id: "notification" }
+      );
+    }
+  }, []);
 
   return (
     <Dropdown closeOnSelect={false} shouldCloseOnInteractOutside={false}>

@@ -14,8 +14,10 @@ import Lottie from "lottie-react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { setCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
+import useShipment from "@/hooks/useShipment";
 
 const Carousel = ({ images, content }) => {
+  // const { isLoading } = useShipment();
   const queryClient = useQueryClient();
   const [index, setIndex] = useState(0);
   const router = useRouter();
@@ -52,15 +54,11 @@ const Carousel = ({ images, content }) => {
       <div className="w-24 h-24">
         <Lottie animationData={LocatingSpinner} />
       </div>,
-      { id: "tracking", duration:30000 }
+      { id: "tracking", duration: 30000 }
     );
   };
 
-  useEffect((
-    
-  ) => {
-    
-  }, [isPending])
+ 
 
   return (
     <div className="relative lg:h-[80vh] h-screen overflow-hidden ">

@@ -34,6 +34,17 @@ const Register = () => {
       toast.error(error.response.data.errors[0]?.detail, { id: "signup" });
     },
     onSuccess: (data) => {
+      setFormData({
+        username: "",
+        full_name: "",
+        email: "",
+        phone: "",
+        company: "",
+        job_title: "",
+        address: "",
+        password: "",
+        password_confirm: "",
+      });
       toast.custom(
           <motion.div
             initial={{ y: -70, opacity: 0 }}

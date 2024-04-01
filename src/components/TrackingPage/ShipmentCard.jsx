@@ -88,7 +88,7 @@ const ShipmentCard = ({ shipment }) => {
           </span>
         </div>
       </div>
-      <div className="flex gap-[3rem]">
+      <div className="flex gap-[3rem] pt-1">
         <div className="flex justify-between items-center w-full flex-row  space-x-2 font-semibold text-xs uppercase">
           <h1 className="bg-gradient-to-r opacity-90 from-gray-900 via-gray-600 to-gray-900 p-2 rounded-xl ">
             <span className="text-[10px]">

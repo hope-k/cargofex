@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useCallback,useEffect } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import {
   Dropdown,
   DropdownTrigger,
@@ -22,7 +22,7 @@ import { motion } from "framer-motion";
 
 const Notification = ({ notifications }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [currentNotification, setCurrentNotification] = useState(null);
+  const [currentNotificationIdx, setCurrentNotificationIdx] = useState(null);
 
   useEffect(() => {
     if (notifications?.length > 0) {
@@ -44,6 +44,11 @@ const Notification = ({ notifications }) => {
     }
   }, []);
 
+  const handleOnPress = (i) => {
+    onOpen();
+    setCurrentNotificationIdx(i);
+  };
+
   return (
     <Dropdown closeOnSelect={false} shouldCloseOnInteractOutside={false}>
       <DropdownTrigger>
@@ -57,11 +62,10 @@ const Notification = ({ notifications }) => {
         {notifications?.map((notification, i) => (
           <DropdownItem
             key={i}
-            onClick={() => setCurrentNotification(notification)}
-            onPress={onOpen}
+            onPress={() => handleOnPress(i)}
             description={moment(notification.created_at).fromNow()}
           >
-            <div className="flex group cursor-pointer items-center justify-between text-black ">
+            <div className={` ${currentNotificationIdx === i && 'border-l-3 border-primary pl-1'} flex group cursor-pointer items-center transition-all duration-400 ease-soft-spring justify-between text-black `}>
               <div>
                 <h1 className="text-sm font-semibold">{notification.title}</h1>
                 <span className="text-xs lowercase flex items-center">
@@ -70,12 +74,13 @@ const Notification = ({ notifications }) => {
                 </span>
               </div>
             </div>
-            {currentNotification?.id === notification?.id && (
+            {currentNotificationIdx === i && (
               <Modal
                 backdrop="blur"
                 key={notification.id}
                 isOpen={isOpen}
                 onOpenChange={onOpenChange}
+                onClose={() => setCurrentNotificationIdx(null)}
               >
                 <ModalContent>
                   {(onClose) => (

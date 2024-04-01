@@ -43,7 +43,7 @@ const Carousel = ({ images, content }) => {
     onSuccess: (data) => {
       setCookie("tracking_number", trackingNumber);
       router.push(`/shipment/tracking/?tracking_number=${trackingNumber}`);
-      toast.success("Shipment Located!", { id: "tracking", duration: 3000 });
+      toast.success("Shipment Located!", { id: "tracking", duration: 900, className: 'text-xs font-semibold' });
     },
   });
 

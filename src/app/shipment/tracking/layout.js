@@ -17,7 +17,7 @@ export default function Layout({ children }) {
   const router = useRouter()
   const handleExit = () => {
     deleteCookie('tracking_number')
-    router.push('/')
+    router.replace('/')
   }
   return (
     <div className={inter.classNames}>

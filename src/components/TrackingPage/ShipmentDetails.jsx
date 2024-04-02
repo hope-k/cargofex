@@ -115,7 +115,7 @@ export default function ShipmentDetails({
                             );
                           },
                         }}
-                        className="rounded-xl"
+                        className="rounded-lg mr-2"
                         width={65}
                         height={55}
                         src={img?.image}

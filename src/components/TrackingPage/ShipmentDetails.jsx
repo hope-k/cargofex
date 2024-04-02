@@ -93,10 +93,10 @@ export default function ShipmentDetails({
                 {/* preview shipment */}
 
                 <div>
-                  <h1 className="text-black font-bold mb-2">
+                  <h1 className="text-black font-semibold mb-2">
                     Preview Shipment
                   </h1>
-                  <div>
+                  <div className='space-x-2'>
                     {shipment?.images?.map((img, i) => (
                       <Image
                         key={i}
@@ -115,7 +115,7 @@ export default function ShipmentDetails({
                             );
                           },
                         }}
-                        className="rounded-lg mr-2"
+                        className="rounded-lg "
                         width={65}
                         height={55}
                         src={img?.image}

@@ -8,6 +8,14 @@ import {
 import { getShipment } from "@/hooks/useShipment";
 import { cookies } from "next/headers";
 
+
+export async function generateMetadata({searchParams}){
+  return {
+    title: `Tracking #${searchParams?.tracking_number} - CargoFex`,
+  }
+
+}
+
 export default async function Tracking({ searchParams }) {
   const queryClient = new QueryClient();
   const trackingNo = searchParams?.tracking_number;
